@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Thank you
+{% endblock %}
+
+{% block content %}
+  <h1>Thank you</h1>
+  <p>Your order has been successfully completed. Your order details as follows</p>
+
+        <ul>
+          <li>order number - {{ order_number }}</li>
+            <li>First Name  - {{ first_name }}</li>
+            <li>Last Name - {{ last_name }}</li>
+            <li>Address - {{ address }}</li>
+
+	    <li>Product Name - {{ title }}</li>
+	    <li>Product Quantity - {{ quantity }}</li>
+	    <li>Product Price - {{ price }}</li>
+            <hr/>
+        </ul>
+
+{% endblock %}

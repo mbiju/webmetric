@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 offset-1">
+            <div class="card" style="width: 20rem;">
+                {% if object.image %}
+                <img class="card-img-top" src="{{ object.image.url }}" alt="Card image cap">
+                {% else %}
+                    <img src="{% static 'img/no-image.png' %}" class="img-responsive">
+                {% endif %}
+                <div class="card-body">
+                    <span class="card-title"><b>{{ object.title|title }}</b></span><span style="float:right"><b>${{ object.price }}</b></span>
+                <p class="card-text">{{ object.desc|title }}</p>
+                <!--<a href="/" class="btn btn-primary">Go somewhere</a>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ cart_product_form|crispy }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-block btn-success" value="Add to cart">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-sm-3">
+            <figure class="figure">
+                {% if product.image %}
+              <img src="{{ product.image.url }}" class="figure-img img-fluid rounded" >
+              {% else %}
+                <img src="{% static 'img/no-image.png' %}" class="figure-img img-fluid rounded">
+
+                    {% endif %}
+                <figcaption class="figure-caption"><a href="{{ product.get_absolute_url }}">
+                    <span>{{ product.title|title }}</span><span style="float: right ; margin-right:10px;">${{ product.price }}</span></a></figcaption>
+            </figure>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

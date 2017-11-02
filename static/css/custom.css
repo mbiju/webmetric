@@ -1,0 +1,15 @@
+.img-fluid {
+    max-width: 92%;
+
+}
+.navbar{
+    margin-bottom: 60px;
+    height: 65px;
+
+}
+.navbar-light{
+    background-color: #2bada3;
+}
+.row{
+    margin-left: 50px;
+}
